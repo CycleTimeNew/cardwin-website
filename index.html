@@ -1,0 +1,553 @@
+<html lang="tr">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardWin - Her Kart ile Ödüllerinizi Maksimize Edin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      window.FontAwesomeConfig = {
+        autoReplaceSvg: 'nest'
+      };
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet">
+    <style>
+      ::-webkit-scrollbar
+      {
+        display: none;
+      }
+
+      body
+      {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .gradient-bg
+      {
+        background: linear-gradient(135deg, #2B6CFB 0%, #00C853 100%);
+      }
+
+      .card-hover
+      {
+        transition: all 0.3s ease;
+      }
+
+      .card-hover:hover
+      {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(43, 108, 251, 0.15);
+      }
+
+      .hero-pattern
+      {
+        background-image: radial-gradient(circle at 25% 25%, rgba(43, 108, 251, 0.1) 0%, transparent 50%);
+      }
+
+      .feature-icon
+      {
+        background: linear-gradient(135deg, rgba(43, 108, 251, 0.1) 0%, rgba(0, 200, 83, 0.1) 100%);
+      }
+
+      .cta-button
+      {
+        background: linear-gradient(135deg, #2B6CFB 0%, #00C853 100%);
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover
+      {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 40px rgba(43, 108, 251, 0.3);
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme:
+        {
+          extend:
+          {
+            colors:
+            {
+              primary: '#2B6CFB',
+              success: '#00C853',
+              'primary-dark': '#1E4FBB',
+              'success-dark': '#009A3E'
+            }
+          }
+        }
+      }
+    </script>
+    <style data-grapesjs-styles="true">
+      *
+      {
+        box-sizing: border-box;
+      }
+
+      body
+      {
+        margin: 0;
+      }
+
+      ::-webkit-scrollbar
+      {
+        display: none;
+      }
+
+      body
+      {
+        font-family: Inter, sans-serif;
+      }
+
+      .gradient-bg
+      {
+        background-image: linear-gradient(135deg, rgb(43, 108, 251) 0%, rgb(0, 200, 83) 100%);
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: initial;
+      }
+
+      .card-hover
+      {
+        transition-behavior: normal;
+        transition-duration: 0.3s;
+        transition-timing-function: ease;
+        transition-delay: 0s;
+        transition-property: all;
+      }
+
+      .card-hover:hover
+      {
+        transform: translateY(-8px);
+        box-shadow: rgba(43, 108, 251, 0.15) 0px 20px 60px;
+      }
+
+      .hero-pattern
+      {
+        background-image: radial-gradient(circle at 25% 25%, rgba(43, 108, 251, 0.1) 0%, transparent 50%);
+      }
+
+      .feature-icon
+      {
+        background-image: linear-gradient(135deg, rgba(43, 108, 251, 0.1) 0%, rgba(0, 200, 83, 0.1) 100%);
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: initial;
+      }
+
+      .cta-button
+      {
+        background-image: linear-gradient(135deg, rgb(43, 108, 251) 0%, rgb(0, 200, 83) 100%);
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: initial;
+        transition-behavior: normal;
+        transition-duration: 0.3s;
+        transition-timing-function: ease;
+        transition-delay: 0s;
+        transition-property: all;
+      }
+
+      .cta-button:hover
+      {
+        transform: translateY(-2px);
+        box-shadow: rgba(43, 108, 251, 0.3) 0px 15px 40px;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardWin - Her Kart ile Ödüllerinizi Maksimize Edin</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet">
+    <header id="header"
+      class="bg-white/95 backdrop-blur-md border-b border-gray-100 px-6 py-4 sticky top-0 z-50 shadow-sm">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div
+            class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+            <i class="fas fa-credit-card text-white text-xl"></i></div>
+          <div>
+            <h1 class="text-2xl font-bold text-gray-900">CardWin</h1>
+            <p class="text-xs text-gray-500 hidden md:block">Kartını Seç,
+              Kazancı Keşfet</p>
+          </div>
+        </div>
+        <nav class="hidden lg:flex items-center space-x-8"><a href="#home"
+            class="text-gray-900 font-semibold">Ana Sayfa</a><a
+            href="#campaigns"
+            class="text-gray-600 hover:text-gray-900 transition-colors">Kampanyalar</a><a
+            href="#about"
+            class="text-gray-600 hover:text-gray-900 transition-colors">Hakkında</a><a
+            href="#blog"
+            class="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+          <div class="relative"><button id="countryToggle"
+              class="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors bg-gray-50 px-4 py-2 rounded-xl"><i
+                class="fas fa-globe"></i><span>🇹🇷 TR</span><i
+                class="fas fa-chevron-down text-xs"></i></button></div><button
+            class="border-2 border-gray-300 text-gray-700 px-6 py-2.5 rounded-xl font-semibold hover:border-primary hover:text-primary transition-colors">
+            Giriş Yap
+          </button>
+        </nav><button class="lg:hidden text-gray-600"><i
+            class="fas fa-bars text-xl"></i></button>
+      </div>
+    </header>
+    <section id="hero-section" class="hero-pattern py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-4xl mx-auto space-y-6 mb-12">
+          <h1
+            class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+            Kartlarını Karşılaştır,
+            <span
+              class="bg-gradient-to-r from-primary to-success bg-clip-text text-transparent">
+              Kazancını Artır
+            </span>
+          </h1>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            Yapay zekâ destekli analizlerle cashback, puan, mil ve kampanya
+            fırsatlarını karşılaştırın.
+          </p>
+        </div>
+        <div id="card-finder"
+          class="bg-white rounded-3xl p-6 shadow-2xl border border-gray-100 max-w-5xl mx-auto mb-12">
+          <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Kart
+            Kampanyalarını Bul</h3>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+            <div><label
+                class="block text-sm font-medium text-gray-700 mb-2">Harcama
+                Tutarı</label><input id="amountInput" type="number"
+                value="10000"
+                class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-gray-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+            </div>
+            <div><label
+                class="block text-sm font-medium text-gray-700 mb-2">Kategori</label><select
+                id="categorySelect"
+                class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-gray-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                <option>Elektronik</option>
+                <option>Market</option>
+                <option>Seyahat</option>
+                <option>Akaryakıt</option>
+              </select></div>
+            <div class="flex items-end"><button id="calculateBtn"
+                class="w-full cta-button text-white py-2.5 rounded-xl font-semibold text-base"><i
+                  class="fas fa-calculator mr-2"></i>
+                Hesapla
+              </button></div>
+          </div>
+          <div
+            class="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 pt-3 border-t border-gray-100">
+          </div>
+        </div>
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Tavsiye Edilen Kredi Kartları</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              En popüler ve avantajlı kredi kartları arasından size en uygun
+              olanı seçin.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div
+              class="card-hover bg-white rounded-2xl p-5 shadow-lg border border-gray-100 text-center">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                <i class="fas fa-credit-card text-white text-xl"></i></div>
+              <h3 class="text-lg font-bold text-gray-900 mb-1">Garanti BBVA</h3>
+              <p class="text-sm text-gray-600 mb-3">Bonus Card</p>
+              <div
+                class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-semibold inline-block mb-3">
+                %15 Bonus
+              </div><button
+                class="w-full bg-primary text-white py-2 rounded-xl font-semibold text-sm hover:bg-primary-dark transition-colors">
+                İncele
+              </button>
+            </div>
+            <div
+              class="card-hover bg-white rounded-2xl p-5 shadow-lg border border-gray-100 text-center">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                <i class="fas fa-credit-card text-white text-xl"></i></div>
+              <h3 class="text-lg font-bold text-gray-900 mb-1">Akbank</h3>
+              <p class="text-sm text-gray-600 mb-3">Axess Card</p>
+              <div
+                class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-semibold inline-block mb-3">
+                %16 Chip-Para
+              </div><button
+                class="w-full bg-primary text-white py-2 rounded-xl font-semibold text-sm hover:bg-primary-dark transition-colors">
+                İncele
+              </button>
+            </div>
+            <div
+              class="card-hover bg-white rounded-2xl p-5 shadow-lg border border-gray-100 text-center">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                <i class="fas fa-credit-card text-white text-xl"></i></div>
+              <h3 class="text-lg font-bold text-gray-900 mb-1">Yapı Kredi</h3>
+              <p class="text-sm text-gray-600 mb-3">World Card</p>
+              <div
+                class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-semibold inline-block mb-3">
+                %10 Worldpuan
+              </div><button
+                class="w-full bg-primary text-white py-2 rounded-xl font-semibold text-sm hover:bg-primary-dark transition-colors">
+                İncele
+              </button>
+            </div>
+            <div
+              class="card-hover bg-white rounded-2xl p-5 shadow-lg border border-gray-100 text-center">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                <i class="fas fa-credit-card text-white text-xl"></i></div>
+              <h3 class="text-lg font-bold text-gray-900 mb-1">İş Bankası</h3>
+              <p class="text-sm text-gray-600 mb-3">Maximum Card</p>
+              <div
+                class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-semibold inline-block mb-3">
+                %18 MaxiPuan
+              </div><button
+                class="w-full bg-primary text-white py-2 rounded-xl font-semibold text-sm hover:bg-primary-dark transition-colors">
+                İncele
+              </button>
+            </div>
+            <div
+              class="card-hover bg-white rounded-2xl p-5 shadow-lg border border-gray-100 text-center">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                <i class="fas fa-credit-card text-white text-xl"></i></div>
+              <h3 class="text-lg font-bold text-gray-900 mb-1">Ziraat Bankası
+              </h3>
+              <p class="text-sm text-gray-600 mb-3">Bankkart</p>
+              <div
+                class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-semibold inline-block mb-3">
+                %12 Puan
+              </div><button
+                class="w-full bg-primary text-white py-2 rounded-xl font-semibold text-sm hover:bg-primary-dark transition-colors">
+                İncele
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="why-cardwin-section" class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Neden
+            CardWin?</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Akıllı algoritmaları ile binlerce kart kampanyasını analiz eder,
+            size en uygun seçeneği sunar.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="card-hover bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100">
+            <div
+              class="feature-icon w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-brain text-3xl text-primary"></i></div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Akıllı Eşleştirme
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Yapay zekâ ile harcama alışkanlıklarınızı analiz eder,
+              size en uygun kredi kartını önerir.
+            </p>
+          </div>
+          <div
+            class="card-hover bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100">
+            <div
+              class="feature-icon w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-chart-line text-3xl text-success"></i></div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Kazancı Maksimize
+              Et</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Cashback, puan ve mil fırsatlarını karşılaştırarak
+              her harcama tutarında maksimum ödül elde edin.
+            </p>
+          </div>
+          <div
+            class="card-hover bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100">
+            <div
+              class="feature-icon w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-sync text-3xl text-primary"></i></div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Anlık
+              Güncellemeler</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Kampanyalar değiştiğinde
+              anında bildirim alır, fırsatları kaçırmazsınız.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer" class="bg-gray-900 text-white py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-5 gap-8 mb-12">
+          <div class="md:col-span-2 space-y-6">
+            <div class="flex items-center space-x-3">
+              <div
+                class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center">
+                <i class="fas fa-credit-card text-white text-xl"></i></div>
+              <div>
+                <h4 class="text-2xl font-bold">CardWin</h4>
+                <p class="text-sm text-gray-400">Kartını Seç, Kazancı Keşfet</p>
+              </div>
+            </div>
+            <p class="text-gray-400 leading-relaxed">
+              Maksimum ödüller için akıllı kredi kartı önerileri.
+              Yapay zeka destekli analizlerle harcamalarınızı optimize edin.
+            </p>
+            <div class="flex space-x-4"><a href="#"
+                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"><i
+                  class="fab fa-linkedin"></i></a><a href="#"
+                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"><i
+                  class="fab fa-instagram"></i></a><a href="#"
+                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"><i
+                  class="fab fa-twitter"></i></a></div>
+          </div>
+          <div>
+            <h5 class="font-semibold mb-6 text-lg">Ürün</h5>
+            <div class="space-y-3"><a href="#"
+                class="block text-gray-400 hover:text-white transition-colors">Özellikler</a><a
+                href="#"
+                class="block text-gray-400 hover:text-white transition-colors">API</a><a
+                href="#"
+                class="block text-gray-400 hover:text-white transition-colors">Fiyatlandırma</a><a
+                href="#"
+                class="block text-gray-400 hover:text-white transition-colors">Entegrasyonlar</a>
+            </div>
+          </div>
+          <div>
+            <h5 class="font-semibold mb-6 text-lg">Şirket</h5>
+            <div class="space-y-3"><a href="#"
+                class="block text-gray-400 hover:text-white transition-colors">Hakkımızda</a><a
+                href="#"
+                class="block text-gray-400 hover:text-white transition-colors">Blog</a><a
+                href="#"
+                class="block text-gray-400 hover:text-white transition-colors">Kariyer</a><a
+                href="#"
+                class="block text-gray-400 hover:text-white transition-colors">Basın</a>
+            </div>
+          </div>
+          <div>
+            <h5 class="font-semibold mb-6 text-lg">Destek</h5>
+            <div class="space-y-3"><a href="#"
+                class="block text-gray-400 hover:text-white transition-colors">Yardım
+                Merkezi</a><a href="#"
+                class="block text-gray-400 hover:text-white transition-colors">İletişim</a><a
+                href="#"
+                class="block text-gray-400 hover:text-white transition-colors">Gizlilik
+                Politikası</a><a href="#"
+                class="block text-gray-400 hover:text-white transition-colors">Kullanım
+                Şartları</a></div>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+          <p>© 2025 CardWin. Tüm hakları saklıdır.</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', function()
+      {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor =>
+        {
+          anchor.addEventListener('click', function(e)
+          {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute(
+              'href'));
+            if (target)
+            {
+              target.scrollIntoView(
+              {
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+
+        // Country selector functionality
+        const countryToggle = document.getElementById('countryToggle');
+        if (countryToggle)
+        {
+          countryToggle.addEventListener('click', function()
+          {
+            // Toggle country selection dropdown
+            console.log('Country selector clicked');
+          });
+        }
+
+        // Card finder functionality
+        const cardFinderButton = document.querySelector('.cta-button');
+        if (cardFinderButton)
+        {
+          cardFinderButton.addEventListener('click', function()
+          {
+            // Scroll to results or show results
+            const resultsSection = document.getElementById(
+              'results-section');
+            if (resultsSection)
+            {
+              resultsSection.scrollIntoView(
+              {
+                behavior: 'smooth'
+              });
+            }
+          });
+        }
+
+        // Add intersection observer for animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) =>
+        {
+          entries.forEach(entry =>
+          {
+            if (entry.isIntersecting)
+            {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        }, observerOptions);
+
+        // Observe all card elements
+        document.querySelectorAll('.card-hover').forEach(card =>
+        {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          card.style.transition =
+            'opacity 0.6s ease, transform 0.6s ease';
+          observer.observe(card);
+        });
+      });
+    </script>
+  </body>
+
+</html>
