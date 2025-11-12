@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildirimler</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2B6CFB',
+                        success: '#00C853',
+                        'primary-dark': '#1E4FBB',
+                        'success-dark': '#009A3E'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar { display: none;}
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #2B6CFB 0%, #00C853 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(43, 108, 251, 0.1);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #2B6CFB 0%, #00C853 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(43, 108, 251, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-900">
+
+<div id="main-container" class="flex h-screen bg-gray-50">
+  <aside id="sidebar" class="w-64 bg-white border-r border-gray-100 flex flex-col shadow-sm">
+    <div class="p-6 border-b border-gray-100">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+          <i class="fa-solid fa-credit-card text-white text-xl"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-bold text-gray-900">CardWin</span>
+          <p class="text-xs text-gray-500">Kartını Seç, Kazancı Keşfet</p>
+        </div>
+      </div>
+    </div>
+    
+    <nav class="flex-1 p-4">
+      <ul class="space-y-2">
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+            <i class="fa-solid fa-house"></i>
+            <span>Ana Sayfa</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>Kartlarım</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Karşılaştır</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+            <i class="fa-solid fa-bullhorn"></i>
+            <span>Kampanyalar</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+            <i class="fa-solid fa-sparkles"></i>
+            <span>Kişisel Öneriler</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+            <i class="fa-solid fa-star"></i>
+            <span>Favoriler</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl gradient-bg text-white shadow-lg">
+            <i class="fa-solid fa-gear"></i>
+            <span>Ayarlar</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="p-4 border-t border-gray-100">
+      <div class="flex items-center gap-3 px-4 py-3">
+        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="User" class="w-10 h-10 rounded-full">
+        <div class="flex-1">
+          <div class="font-semibold text-gray-900">Ayşe Y.</div>
+          <div class="text-sm text-gray-600">Premium</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content" class="flex-1 overflow-y-auto">
+    <header id="header" class="bg-white/95 backdrop-blur-md border-b border-gray-100 px-8 py-6 sticky top-0 z-50 shadow-sm">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900">Bildirim Tercihleri</h1>
+          <p class="text-gray-600 mt-2">Hangi bildirimleri almak istediğini seç</p>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button class="relative p-2 rounded-full hover:bg-gray-50 transition">
+            <i class="fa-solid fa-bell text-gray-600 text-xl"></i>
+            <span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="p-8">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+        <div id="settings-sidebar" class="lg:col-span-1">
+          <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-4 sticky top-28">
+            <nav class="space-y-2">
+              <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+                <i class="fa-solid fa-user"></i>
+                <span>Profil Bilgileri</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Güvenlik</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl gradient-bg text-white shadow-md">
+                <i class="fa-solid fa-bell"></i>
+                <span class="font-semibold">Bildirimler</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+                <i class="fa-solid fa-sliders"></i>
+                <span>Tercihler</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+                <i class="fa-solid fa-lock"></i>
+                <span>Gizlilik</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+                <i class="fa-solid fa-crown"></i>
+                <span>Abonelik</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+                <i class="fa-solid fa-circle-question"></i>
+                <span>Yardım</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div id="settings-content" class="lg:col-span-3 space-y-6">
+          <section id="notification-overview" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+                <i class="fa-solid fa-bell text-white text-xl"></i>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-gray-900">Bildirim Özeti</h2>
+                <p class="text-sm text-gray-600">Bildirim ayarlarının genel durumu</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="card-hover bg-gradient-to-br from-primary/5 to-success/5 rounded-xl p-6 border border-gray-100">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <i class="fa-solid fa-envelope text-primary text-xl"></i>
+                  </div>
+                  <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full">Aktif</span>
+                </div>
+                <h3 class="font-bold text-gray-900 mb-2">E-posta</h3>
+                <p class="text-sm text-gray-600">12 bildirim tipi aktif</p>
+              </div>
+
+              <div class="card-hover bg-gradient-to-br from-primary/5 to-success/5 rounded-xl p-6 border border-gray-100">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <i class="fa-solid fa-mobile-screen text-primary text-xl"></i>
+                  </div>
+                  <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full">Aktif</span>
+                </div>
+                <h3 class="font-bold text-gray-900 mb-2">Push Bildirimleri</h3>
+                <p class="text-sm text-gray-600">8 bildirim tipi aktif</p>
+              </div>
+
+              <div class="card-hover bg-gradient-to-br from-primary/5 to-success/5 rounded-xl p-6 border border-gray-100">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <i class="fa-solid fa-comment-sms text-primary text-xl"></i>
+                  </div>
+                  <span class="px-3 py-1 bg-gray-200 text-gray-600 text-xs font-bold rounded-full">Pasif</span>
+                </div>
+                <h3 class="font-bold text-gray-900 mb-2">SMS</h3>
+                <p class="text-sm text-gray-600">Sadece acil durumlarda</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="campaign-notifications" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+                  <i class="fa-solid fa-bullhorn text-white text-xl"></i>
+                </div>
+                <div>
+                  <h2 class="text-2xl font-bold text-gray-900">Kampanya Bildirimleri</h2>
+                  <p class="text-sm text-gray-600">Özel fırsatlar ve kampanyalardan haberdar ol</p>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+              </label>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-percent text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Yeni Kampanyalar</p>
+                    <p class="text-sm text-gray-600">Özel indirim ve kampanyalardan anında haberdar ol</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-gift text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Özel Teklifler</p>
+                    <p class="text-sm text-gray-600">Sana özel hazırlanmış teklifler</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-tag text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Süreli Kampanyalar</p>
+                    <p class="text-sm text-gray-600">Sınırlı süreli fırsatları kaçırma</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-calendar-days text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Haftalık Kampanya Özeti</p>
+                    <p class="text-sm text-gray-600">Haftanın en iyi kampanyaları bir arada</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer">
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section id="card-notifications" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+                  <i class="fa-solid fa-credit-card text-white text-xl"></i>
+                </div>
+                <div>
+                  <h2 class="text-2xl font-bold text-gray-900">Kart Bildirimleri</h2>
+                  <p class="text-sm text-gray-600">Kart işlemleri ve güncellemeler</p>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+              </label>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-plus text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Yeni Kart Önerileri</p>
+                    <p class="text-sm text-gray-600">Profiline uygun yeni kartlar eklendiğinde bildir</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-arrows-rotate text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Kart Güncellemeleri</p>
+                    <p class="text-sm text-gray-600">Favori kartlarında değişiklik olduğunda haberdar ol</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-chart-line text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Kart Karşılaştırma</p>
+                    <p class="text-sm text-gray-600">İzlediğin kartlar arasında fiyat değişiklikleri</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-star text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Favori Kartlar</p>
+                    <p class="text-sm text-gray-600">Favorilerdeki kartlar hakkında özel bildirimler</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section id="recommendation-notifications" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+                  <i class="fa-solid fa-sparkles text-white text-xl"></i>
+                </div>
+                <div>
+                  <h2 class="text-2xl font-bold text-gray-900">Kişisel Öneriler</h2>
+                  <p class="text-sm text-gray-600">Yapay zeka destekli özel öneriler</p>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+              </label>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-wand-magic-sparkles text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Akıllı Öneriler</p>
+                    <p class="text-sm text-gray-600">Harcama alışkanlıklarına göre kart önerileri</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-lightbulb text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Tasarruf İpuçları</p>
+                    <p class="text-sm text-gray-600">Daha fazla kazanmak için öneriler</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-trophy text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">En İyi Fırsatlar</p>
+                    <p class="text-sm text-gray-600">Sana özel seçilmiş en avantajlı teklifler</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section id="account-notifications" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+                  <i class="fa-solid fa-user-gear text-white text-xl"></i>
+                </div>
+                <div>
+                  <h2 class="text-2xl font-bold text-gray-900">Hesap Bildirimleri</h2>
+                  <p class="text-sm text-gray-600">Hesap aktiviteleri ve güncellemeler</p>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+              </label>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-shield-halved text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Güvenlik Uyarıları</p>
+                    <p class="text-sm text-gray-600">Hesap güvenliği ile ilgili önemli bildirimler</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-key text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Şifre Değişiklikleri</p>
+                    <p class="text-sm text-gray-600">Şifre güncellemeleri ve hatırlatmalar</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-desktop text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Yeni Cihaz Girişi</p>
+                    <p class="text-sm text-gray-600">Hesabına yeni cihazdan giriş yapıldığında bildir</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-user-pen text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Profil Güncellemeleri</p>
+                    <p class="text-sm text-gray-600">Profil bilgilerinde yapılan değişiklikler</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section id="system-notifications" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+                  <i class="fa-solid fa-cog text-white text-xl"></i>
+                </div>
+                <div>
+                  <h2 class="text-2xl font-bold text-gray-900">Sistem Bildirimleri</h2>
+                  <p class="text-sm text-gray-600">Uygulama ve sistem güncellemeleri</p>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+              </label>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-rocket text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Yeni Özellikler</p>
+                    <p class="text-sm text-gray-600">Uygulamaya eklenen yeni özellikler</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-download text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Uygulama Güncellemeleri</p>
+                    <p class="text-sm text-gray-600">Yeni sürüm ve iyileştirmeler</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-wrench text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Bakım Bildirimleri</p>
+                    <p class="text-sm text-gray-600">Planlı bakım ve kesintiler</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-newspaper text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Duyurular</p>
+                    <p class="text-sm text-gray-600">Önemli duyuru ve haberler</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer">
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section id="notification-channels" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+                <i class="fa-solid fa-paper-plane text-white text-xl"></i>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-gray-900">Bildirim Kanalları</h2>
+                <p class="text-sm text-gray-600">Bildirimleri nasıl almak istediğini seç</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="card-hover bg-gradient-to-br from-primary/5 to-success/5 rounded-xl p-6 border-2 border-primary">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-envelope text-white text-xl"></i>
+                  </div>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="sr-only peer" checked>
+                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                  </label>
+                </div>
+                <h3 class="font-bold text-gray-900 mb-2">E-posta</h3>
+                <p class="text-sm text-gray-600 mb-3">ayse@email.com</p>
+                <p class="text-xs text-gray-500">Detaylı bildirimler ve haftalık özetler</p>
+              </div>
+
+              <div class="card-hover bg-gradient-to-br from-primary/5 to-success/5 rounded-xl p-6 border-2 border-primary">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-mobile-screen text-white text-xl"></i>
+                  </div>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="sr-only peer" checked>
+                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                  </label>
+                </div>
+                <h3 class="font-bold text-gray-900 mb-2">Push Bildirimleri</h3>
+                <p class="text-sm text-gray-600 mb-3">4 cihaz bağlı</p>
+                <p class="text-xs text-gray-500">Anlık bildirimler ve önemli uyarılar</p>
+              </div>
+
+              <div class="card-hover bg-gray-50 rounded-xl p-6 border-2 border-gray-200">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center">
+                    <i class="fa-solid fa-comment-sms text-gray-600 text-xl"></i>
+                  </div>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="sr-only peer">
+                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                  </label>
+                </div>
+                <h3 class="font-bold text-gray-900 mb-2">SMS</h3>
+                <p class="text-sm text-gray-600 mb-3">+90 555 123 ••67</p>
+                <p class="text-xs text-gray-500">Sadece kritik güvenlik bildirimleri</p>
+              </div>
+            </div>
+
+            <div class="mt-6 bg-blue-50 border border-blue-200 rounded-xl p-4">
+              <div class="flex gap-3">
+                <i class="fa-solid fa-circle-info text-primary text-lg mt-0.5"></i>
+                <div>
+                  <p class="font-semibold text-gray-900 mb-1">Bildirim Sıklığı</p>
+                  <p class="text-sm text-gray-600">Bildirim yoğunluğunu azaltmak için gruplandırma özelliğini kullanabilirsin. Benzer bildirimler birleştirilerek günde en fazla 2 kez gönderilir.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="notification-schedule" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+                <i class="fa-solid fa-clock text-white text-xl"></i>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-gray-900">Bildirim Zamanlaması</h2>
+                <p class="text-sm text-gray-600">Bildirimlerin ne zaman gönderileceğini ayarla</p>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <p class="font-semibold text-gray-900">Sessiz Saatler</p>
+                    <p class="text-sm text-gray-600">Bu saatler arasında bildirim alma</p>
+                  </div>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="sr-only peer" checked>
+                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                  </label>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Başlangıç</label>
+                    <input type="time" value="22:00" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent focus:bg-white transition">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Bitiş</label>
+                    <input type="time" value="08:00" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent focus:bg-white transition">
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p class="font-semibold text-gray-900 mb-4">Hafta İçi Tercihleri</p>
+                <div class="grid grid-cols-7 gap-2">
+                  <button class="px-3 py-3 bg-primary text-white rounded-xl text-sm font-semibold">Pzt</button>
+                  <button class="px-3 py-3 bg-primary text-white rounded-xl text-sm font-semibold">Sal</button>
+                  <button class="px-3 py-3 bg-primary text-white rounded-xl text-sm font-semibold">Çar</button>
+                  <button class="px-3 py-3 bg-primary text-white rounded-xl text-sm font-semibold">Per</button>
+                  <button class="px-3 py-3 bg-primary text-white rounded-xl text-sm font-semibold">Cum</button>
+                  <button class="px-3 py-3 bg-gray-200 text-gray-600 rounded-xl text-sm font-semibold">Cmt</button>
+                  <button class="px-3 py-3 bg-gray-200 text-gray-600 rounded-xl text-sm font-semibold">Paz</button>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div>
+                  <p class="font-semibold text-gray-900">Bildirim Gruplandırma</p>
+                  <p class="text-sm text-gray-600">Benzer bildirimleri birleştir</p>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section id="notification-actions" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+                <i class="fa-solid fa-sliders text-white text-xl"></i>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-gray-900">Hızlı İşlemler</h2>
+                <p class="text-sm text-gray-600">Toplu bildirim ayarları</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <button class="cta-button flex items-center justify-center gap-3 px-6 py-4 text-white rounded-xl font-semibold shadow-lg">
+                <i class="fa-solid fa-check-double text-xl"></i>
+                <span>Tümünü Etkinleştir</span>
+              </button>
+              <button class="flex items-center justify-center gap-3 px-6 py-4 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl font-semibold transition">
+                <i class="fa-solid fa-xmark text-xl"></i>
+                <span>Tümünü Devre Dışı Bırak</span>
+              </button>
+              <button class="flex items-center justify-center gap-3 px-6 py-4 bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-700 rounded-xl font-semibold transition">
+                <i class="fa-solid fa-rotate-left text-xl"></i>
+                <span>Varsayılana Dön</span>
+              </button>
+              <button class="flex items-center justify-center gap-3 px-6 py-4 bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-700 rounded-xl font-semibold transition">
+                <i class="fa-solid fa-download text-xl"></i>
+                <span>Ayarları Dışa Aktar</span>
+              </button>
+            </div>
+
+            <div class="mt-6 flex gap-4">
+              <button class="cta-button flex-1 px-6 py-3 text-white rounded-xl font-semibold shadow-lg">
+                <i class="fa-solid fa-save mr-2"></i>
+                Değişiklikleri Kaydet
+              </button>
+              <button class="px-6 py-3 border border-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition">
+                İptal
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

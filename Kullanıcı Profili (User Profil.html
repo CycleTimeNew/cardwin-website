@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Bilgilerim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.FontAwesomeConfig = {
+            autoReplaceSvg: 'nest'
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #2B6CFB 0%, #00C853 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(43, 108, 251, 0.15);
+        }
+
+        .feature-icon {
+            background: linear-gradient(135deg, rgba(43, 108, 251, 0.1) 0%, rgba(0, 200, 83, 0.1) 100%);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #2B6CFB 0%, #00C853 100%);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(43, 108, 251, 0.3);
+        }
+
+        .profile-avatar {
+            background: linear-gradient(135deg, #2B6CFB 0%, #00C853 100%);
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: #2B6CFB;
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        .tab-active {
+            border-bottom: 3px solid #2B6CFB;
+            color: #2B6CFB;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2B6CFB',
+                        success: '#00C853',
+                        'primary-dark': '#1E4FBB',
+                        'success-dark': '#009A3E'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <header id="header" class="bg-white/95 backdrop-blur-md border-b border-gray-100 px-6 py-4 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+                    <i class="fas fa-credit-card text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900">CardWin</h1>
+                    <p class="text-xs text-gray-500 hidden md:block">Kartını Seç, Kazancını Artır</p>
+                </div>
+            </div>
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Ana Sayfa</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Kampanyalar</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Benim Kartlarım</a>
+                <a href="#" class="text-gray-900 font-semibold">Profil</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Hakkında</a>
+                <div class="relative">
+                    <button class="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors bg-gray-50 px-4 py-2 rounded-xl">
+                        <i class="fas fa-globe"></i>
+                        <span>🇹🇷 TR</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                </div>
+                <button class="cta-button text-white px-6 py-2.5 rounded-xl font-semibold">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Çıkış Yap
+                </button>
+            </nav>
+            <button class="lg:hidden text-gray-600">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <main id="profile-main" class="max-w-7xl mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <!-- Sol Menü -->
+            <aside id="profile-sidebar" class="lg:col-span-1">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-24">
+                    <div class="text-center mb-6">
+                        <div class="relative inline-block">
+                            <div class="w-24 h-24 profile-avatar rounded-full flex items-center justify-center mx-auto mb-3">
+                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Profil" class="w-full h-full rounded-full object-cover">
+                            </div>
+                            <button class="absolute bottom-2 right-0 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center border border-gray-200 hover:border-primary transition-colors">
+                                <i class="fas fa-camera text-xs text-gray-600"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Ayşe Yılmaz</h3>
+                        <p class="text-sm text-gray-500">ayse.yilmaz@email.com</p>
+                    </div>
+                    <nav class="space-y-1">
+                        <a href="#personal-info" class="flex items-center space-x-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-medium">
+                            <i class="fas fa-user w-5"></i>
+                            <span>Kişisel Bilgiler</span>
+                        </a>
+                        <a href="#card-preferences" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-credit-card w-5"></i>
+                            <span>Kart Tercihleri</span>
+                        </a>
+                        <a href="#notifications" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-bell w-5"></i>
+                            <span>Bildirimler</span>
+                        </a>
+                        <a href="#security" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-shield-alt w-5"></i>
+                            <span>Güvenlik</span>
+                        </a>
+                        <a href="#privacy" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-lock w-5"></i>
+                            <span>Gizlilik</span>
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Ana İçerik -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Kişisel Bilgiler -->
+                <section id="personal-info" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold text-gray-900">Kişisel Bilgiler</h2>
+                        <button class="text-primary hover:text-primary-dark font-medium">
+                            <i class="fas fa-edit mr-2"></i>Düzenle
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Adınız</label>
+                            <input type="text" value="Ayşe" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Soyadınız</label>
+                            <input type="text" value="Yılmaz" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">E-posta Adresi</label>
+                            <input type="email" value="ayse.yilmaz@email.com" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Telefon Numarası</label>
+                            <input type="tel" value="+90 532 123 45 67" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Doğum Tarihi</label>
+                            <input type="date" value="1990-05-15" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">TC Kimlik No</label>
+                            <input type="text" value="12345678901" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Adres</label>
+                        <textarea rows="3" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">Levent Mah. Büyükdere Cad. No:123 K:4 D:12
+Şişli/İstanbul</textarea>
+                    </div>
+                </section>
+
+                <!-- Kart Tercihleri -->
+                <section id="card-preferences" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold text-gray-900">Kart Tercihleri</h2>
+                        <button class="text-primary hover:text-primary-dark font-medium">
+                            <i class="fas fa-edit mr-2"></i>Düzenle
+                        </button>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-credit-card text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Garanti BBVA Bonus</h4>
+                                    <p class="text-sm text-gray-500">**** **** **** 1234</p>
+                                </div>
+                            </div>
+                            <button class="text-red-500 hover:text-red-600">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-credit-card text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Akbank Axess</h4>
+                                    <p class="text-sm text-gray-500">**** **** **** 5678</p>
+                                </div>
+                            </div>
+                            <button class="text-red-500 hover:text-red-600">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <button class="w-full py-3 border-2 border-dashed border-gray-300 rounded-xl text-gray-600 hover:border-primary hover:text-primary transition-colors">
+                            <i class="fas fa-plus mr-2"></i>Yeni Kart Ekle
+                        </button>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="font-semibold text-gray-900 mb-4">Harcama Kategorileri</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 text-primary rounded focus:ring-primary">
+                                <span class="text-sm text-gray-700">Market</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 text-primary rounded focus:ring-primary">
+                                <span class="text-sm text-gray-700">Yakıt</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 text-primary rounded focus:ring-primary">
+                                <span class="text-sm text-gray-700">Seyahat</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 text-primary rounded focus:ring-primary">
+                                <span class="text-sm text-gray-700">Elektronik</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 text-primary rounded focus:ring-primary">
+                                <span class="text-sm text-gray-700">Giyim</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 text-primary rounded focus:ring-primary">
+                                <span class="text-sm text-gray-700">Restoran</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 text-primary rounded focus:ring-primary">
+                                <span class="text-sm text-gray-700">Eğlence</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 text-primary rounded focus:ring-primary">
+                                <span class="text-sm text-gray-700">Sağlık</span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bildirim Ayarları -->
+                <section id="notifications" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold text-gray-900">Bildirim Ayarları</h2>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-xl transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">E-posta Bildirimleri</h4>
+                                <p class="text-sm text-gray-500">Yeni kampanyalar ve özel teklifler hakkında e-posta alın</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-xl transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">SMS Bildirimleri</h4>
+                                <p class="text-sm text-gray-500">Acil durumlar ve önemli güncellemeler için SMS alın</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-xl transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Push Bildirimleri</h4>
+                                <p class="text-sm text-gray-500">Tarayıcı bildirimlerini etkinleştir</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-xl transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Haftalık Rapor</h4>
+                                <p class="text-sm text-gray-500">Haftalık kazanç özetini e-posta ile alın</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Güvenlik Ayarları -->
+                <section id="security" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold text-gray-900">Güvenlik Ayarları</h2>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-4">Şifre Değiştir</h4>
+                            <div class="space-y-3">
+                                <input type="password" placeholder="Mevcut Şifre" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                                <input type="password" placeholder="Yeni Şifre" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                                <input type="password" placeholder="Yeni Şifre (Tekrar)" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                            </div>
+                        </div>
+                        <div class="border-t pt-6">
+                            <h4 class="font-semibold text-gray-900 mb-4">İki Faktörlü Kimlik Doğrulama</h4>
+                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                                <div>
+                                    <p class="font-medium text-gray-900">Google Authenticator</p>
+                                    <p class="text-sm text-gray-500">Ek güvenlik katmanı ekleyin</p>
+                                </div>
+                                <button class="px-4 py-2 bg-primary text-white rounded-xl font-medium hover:bg-primary-dark transition-colors">
+                                    Etkinleştir
+                                </button>
+                            </div>
+                        </div>
+                        <div class="border-t pt-6">
+                            <h4 class="font-semibold text-gray-900 mb-4">Aktif Oturumlar</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-laptop text-gray-600"></i>
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Windows - Chrome</p>
+                                            <p class="text-xs text-gray-500">İstanbul, Türkiye • Şimdi</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs bg-success/10 text-success px-2 py-1 rounded-full">Aktif</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-mobile-alt text-gray-600"></i>
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">iPhone - Safari</p>
+                                            <p class="text-xs text-gray-500">İstanbul, Türkiye • 2 saat önce</p>
+                                        </div>
+                                    </div>
+                                    <button class="text-xs text-red-500 hover:text-red-600">Oturumu Kapat</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Gizlilik Ayarları -->
+                <section id="privacy" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold text-gray-900">Gizlilik Ayarları</h2>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-xl transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Profil Gizliliği</h4>
+                                <p class="text-sm text-gray-500">Profilinizi herkese açık yap</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-xl transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Veri Paylaşımı</h4>
+                                <p class="text-sm text-gray-500">Anonim verileri iyileştirme için paylaş</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-xl transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Pazarlama İletişimi</h4>
+                                <p class="text-sm text-gray-500">Partnerlerden özel teklifler alın</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-red-50 rounded-xl">
+                        <h4 class="font-semibold text-red-900 mb-2">Hesabı Sil</h4>
+                        <p class="text-sm text-red-700 mb-3">Hesabınızı kalıcı olarak silmek isterseniz, tüm verileriniz geri alınamaz şekilde silinecektir.</p>
+                        <button class="px-4 py-2 bg-red-500 text-white rounded-xl font-medium hover:bg-red-600 transition-colors">
+                            Hesabı Sil
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Kaydet Butonları -->
+                <div class="flex items-center justify-between bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        Son değişiklik: 12 Kasım 2025, 19:55
+                    </div>
+                    <div class="flex space-x-3">
+                        <button class="px-6 py-3 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:border-primary hover:text-primary transition-colors">
+                            İptal
+                        </button>
+                        <button class="cta-button text-white px-6 py-3 rounded-xl font-semibold">
+                            <i class="fas fa-save mr-2"></i>Değişiklikleri Kaydet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer" class="bg-gray-900 text-white py-16 mt-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-5 gap-8 mb-12">
+                <div class="md:col-span-2 space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-credit-card text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold">CardWin</h4>
+                            <p class="text-sm text-gray-400">Kartını Seç, Kazancını Artır</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Yapay zeka destekli akıllı harcama ve kredi kartı karşılaştırma platformu. Her harcamanda en yüksek ödülü yakala.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-6 text-lg">Ürün</h5>
+                    <div class="space-y-3">
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Özellikler</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Kampanyalar</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Bankalar</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">API</a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-6 text-lg">Şirket</h5>
+                    <div class="space-y-3">
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Hakkımızda</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Blog</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Kariyer</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Basın</a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-6 text-lg">Destek</h5>
+                    <div class="space-y-3">
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Yardım Merkezi</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">İletişim</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Gizlilik Politikası</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Kullanım Şartları</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>© 2025 CardWin. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Toggle switches functionality
+            const toggleSwitches = document.querySelectorAll('.toggle-switch input');
+            toggleSwitches.forEach(toggle => {
+                toggle.addEventListener('change', function() {
+                    console.log('Toggle changed:', this.checked);
+                });
+            });
+
+            // Edit buttons functionality
+            const editButtons = document.querySelectorAll('button:has(.fa-edit)');
+            editButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const section = this.closest('section');
+                    const inputs = section.querySelectorAll('input, textarea, select');
+                    inputs.forEach(input => {
+                        input.removeAttribute('readonly');
+                        input.classList.remove('bg-gray-50');
+                        input.classList.add('bg-white');
+                    });
+                });
+            });
+
+            // Save button functionality
+            const saveButton = document.querySelector('.cta-button:has(.fa-save)');
+            if (saveButton) {
+                saveButton.addEventListener('click', function() {
+                    // Show success message
+                    const successDiv = document.createElement('div');
+                    successDiv.className = 'fixed top-20 right-6 bg-success text-white px-6 py-3 rounded-xl shadow-lg z-50 flex items-center space-x-2';
+                    successDiv.innerHTML = '<i class="fas fa-check-circle"></i><span>Değişiklikler başarıyla kaydedildi!</span>';
+                    document.body.appendChild(successDiv);
+                    
+                    setTimeout(() => {
+                        successDiv.remove();
+                    }, 3000);
+                });
+            }
+
+            // Profile image upload
+            const cameraButton = document.querySelector('.fa-camera').parentElement;
+            if (cameraButton) {
+                cameraButton.addEventListener('click', function() {
+                    const input = document.createElement('input');
+                    input.type = 'file';
+                    input.accept = 'image/*';
+                    input.onchange = function(e) {
+                        const file = e.target.files[0];
+                        if (file) {
+                            console.log('Profile image selected:', file.name);
+                        }
+                    };
+                    input.click();
+                });
+            }
+
+            // Add card functionality
+            const addCardButton = document.querySelector('button:has(.fa-plus)');
+            if (addCardButton) {
+                addCardButton.addEventListener('click', function() {
+                    console.log('Add new card clicked');
+                });
+            }
+
+            // Delete card functionality
+            const deleteButtons = document.querySelectorAll('.fa-trash').parentElement;
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (confirm('Bu kartı silmek istediğinizden emin misiniz?')) {
+                        this.closest('.flex').remove();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

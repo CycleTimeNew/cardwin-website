@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayarlar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2B6CFB',
+                        success: '#00C853',
+                        'primary-dark': '#1E4FBB',
+                        'success-dark': '#009A3E',
+                        navy: '#000080',
+                        silver: '#C0C0C0'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar { display: none;}
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #2B6CFB 0%, #00C853 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(43, 108, 251, 0.1);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #2B6CFB 0%, #00C853 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(43, 108, 251, 0.3);
+        }
+
+        .toggle-checkbox:checked {
+            right: 0;
+            background-color: #2B6CFB;
+        }
+        
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #2B6CFB;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-900">
+
+<div id="main-container" class="flex h-screen bg-gray-50">
+  <aside id="sidebar" class="w-64 bg-white border-r border-gray-100 flex flex-col shadow-sm">
+    <div class="p-6 border-b border-gray-100">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+          <i class="fa-solid fa-credit-card text-white text-xl"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-bold text-gray-900">CardWin</span>
+          <p class="text-xs text-gray-500">Kartını Seç, Kazancı Keşfet</p>
+        </div>
+      </div>
+    </div>
+    
+    <nav class="flex-1 p-4">
+      <ul class="space-y-2">
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+            <i class="fa-solid fa-house"></i>
+            <span>Ana Sayfa</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>Kartlarım</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Karşılaştır</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+            <i class="fa-solid fa-bullhorn"></i>
+            <span>Kampanyalar</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+            <i class="fa-solid fa-sparkles"></i>
+            <span>Kişisel Öneriler</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+            <i class="fa-solid fa-star"></i>
+            <span>Favoriler</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl gradient-bg text-white shadow-lg">
+            <i class="fa-solid fa-gear"></i>
+            <span>Ayarlar</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="p-4 border-t border-gray-100">
+      <div class="flex items-center gap-3 px-4 py-3">
+        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="User" class="w-10 h-10 rounded-full">
+        <div class="flex-1">
+          <div class="font-semibold text-gray-900">Ayşe Y.</div>
+          <div class="text-sm text-gray-600">Premium</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content" class="flex-1 overflow-y-auto">
+    <header id="header" class="bg-white/95 backdrop-blur-md border-b border-gray-100 px-8 py-6 sticky top-0 z-50 shadow-sm">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900">Ayarlar</h1>
+          <p class="text-gray-600 mt-2">Hesabını ve tercihlerini yönet</p>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button class="relative p-2 rounded-full hover:bg-gray-50 transition">
+            <i class="fa-solid fa-bell text-gray-600 text-xl"></i>
+            <span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="p-8">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+        <div id="settings-sidebar" class="lg:col-span-1">
+          <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-4 sticky top-28">
+            <nav class="space-y-2">
+              <a href="#profile-section" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+                <i class="fa-solid fa-user"></i>
+                <span>Profil Bilgileri</span>
+              </a>
+              <a href="#security-section" class="flex items-center gap-3 px-4 py-3 rounded-xl gradient-bg text-white shadow-md">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span class="font-semibold">Güvenlik</span>
+              </a>
+              <a href="#notifications-section" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+                <i class="fa-solid fa-bell"></i>
+                <span>Bildirimler</span>
+              </a>
+              <a href="#preferences-section" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+                <i class="fa-solid fa-sliders"></i>
+                <span>Tercihler</span>
+              </a>
+              <a href="#privacy-section" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+                <i class="fa-solid fa-lock"></i>
+                <span>Gizlilik</span>
+              </a>
+              <a href="#subscription-section" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+                <i class="fa-solid fa-crown"></i>
+                <span>Abonelik</span>
+              </a>
+              <a href="#help-section" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition">
+                <i class="fa-solid fa-circle-question"></i>
+                <span>Yardım</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div id="settings-content" class="lg:col-span-3 space-y-6">
+          <section id="security-section" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center shadow-lg">
+                <i class="fa-solid fa-shield-halved text-white text-xl"></i>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-gray-900">Güvenlik</h2>
+                <p class="text-sm text-gray-600">Şifreni ve güvenlik ayarlarını yönet</p>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-success/10 to-success/5 rounded-2xl p-4 mb-6 border border-success/20">
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-circle-check text-success text-xl"></i>
+                <div>
+                  <p class="font-semibold text-gray-900">Hesabın Güvende</p>
+                  <p class="text-sm text-gray-600">İki faktörlü kimlik doğrulama aktif</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6 mb-6">
+              <div class="pb-6 border-b border-gray-100">
+                <h3 class="font-bold text-gray-900 mb-4">Şifre Değiştir</h3>
+                <div class="space-y-4">
+                  <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Mevcut Şifre</label>
+                    <div class="relative">
+                      <input type="password" id="current-password" placeholder="••••••••" class="w-full px-4 py-3 pr-12 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent focus:bg-white transition">
+                      <button type="button" onclick="togglePassword('current-password', this)" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                        <i class="fa-solid fa-eye"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Yeni Şifre</label>
+                    <div class="relative">
+                      <input type="password" id="new-password" placeholder="••••••••" class="w-full px-4 py-3 pr-12 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent focus:bg-white transition">
+                      <button type="button" onclick="togglePassword('new-password', this)" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                        <i class="fa-solid fa-eye"></i>
+                      </button>
+                    </div>
+                    <div class="mt-2 space-y-1">
+                      <div class="flex items-center gap-2 text-xs">
+                        <i class="fa-solid fa-circle-check text-gray-300" id="length-check"></i>
+                        <span class="text-gray-600">En az 8 karakter</span>
+                      </div>
+                      <div class="flex items-center gap-2 text-xs">
+                        <i class="fa-solid fa-circle-check text-gray-300" id="uppercase-check"></i>
+                        <span class="text-gray-600">En az bir büyük harf</span>
+                      </div>
+                      <div class="flex items-center gap-2 text-xs">
+                        <i class="fa-solid fa-circle-check text-gray-300" id="number-check"></i>
+                        <span class="text-gray-600">En az bir rakam</span>
+                      </div>
+                      <div class="flex items-center gap-2 text-xs">
+                        <i class="fa-solid fa-circle-check text-gray-300" id="special-check"></i>
+                        <span class="text-gray-600">En az bir özel karakter</span>
+                      </div>
+                    </div>
+                    <div class="mt-3">
+                      <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <div id="password-strength" class="h-full bg-gray-300 transition-all duration-300" style="width: 0%"></div>
+                      </div>
+                      <p class="text-xs text-gray-600 mt-1" id="strength-text">Şifre gücü: Çok Zayıf</p>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Yeni Şifre (Tekrar)</label>
+                    <div class="relative">
+                      <input type="password" id="confirm-password" placeholder="••••••••" class="w-full px-4 py-3 pr-12 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent focus:bg-white transition">
+                      <button type="button" onclick="togglePassword('confirm-password', this)" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                        <i class="fa-solid fa-eye"></i>
+                      </button>
+                    </div>
+                    <p class="text-xs text-red-500 mt-1 hidden" id="password-match-error">Şifreler eşleşmiyor</p>
+                  </div>
+                </div>
+                <button class="cta-button mt-4 px-6 py-3 text-white rounded-xl font-semibold shadow-lg">
+                  Şifreyi Güncelle
+                </button>
+              </div>
+
+              <div class="pb-6 border-b border-gray-100">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 class="font-bold text-gray-900">İki Faktörlü Kimlik Doğrulama</h3>
+                    <p class="text-sm text-gray-600 mt-1">Hesabına ekstra güvenlik katmanı ekle</p>
+                  </div>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="sr-only peer" checked>
+                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                  </label>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-gradient-to-br from-primary/5 to-success/5 rounded-xl p-4 border-2 border-primary">
+                    <div class="flex items-start gap-3">
+                      <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-mobile-screen text-white"></i>
+                      </div>
+                      <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                          <p class="font-semibold text-gray-900">SMS ile Doğrulama</p>
+                          <span class="px-2 py-1 bg-success/10 text-success text-xs font-bold rounded-full">Aktif</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">+90 555 123 ••67</p>
+                        <button class="text-primary text-sm font-semibold hover:underline">
+                          Telefon Numarasını Değiştir
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 rounded-xl p-4 border-2 border-gray-200">
+                    <div class="flex items-start gap-3">
+                      <div class="w-10 h-10 bg-gray-200 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-qrcode text-gray-600"></i>
+                      </div>
+                      <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                          <p class="font-semibold text-gray-900">Authenticator Uygulaması</p>
+                          <span class="px-2 py-1 bg-gray-200 text-gray-600 text-xs font-bold rounded-full">Pasif</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Google Authenticator, Authy</p>
+                        <button class="text-primary text-sm font-semibold hover:underline">
+                          Kurulumu Başlat
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 bg-blue-50 border border-blue-200 rounded-xl p-4">
+                  <div class="flex gap-3">
+                    <i class="fa-solid fa-circle-info text-primary text-lg mt-0.5"></i>
+                    <div>
+                      <p class="font-semibold text-gray-900 mb-1">Yedek Kodlar</p>
+                      <p class="text-sm text-gray-600 mb-3">Telefonuna erişemediğinde kullanabileceğin 10 adet yedek kod oluştur</p>
+                      <button class="text-primary text-sm font-semibold hover:underline">
+                        Yedek Kodları Oluştur
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pb-6 border-b border-gray-100">
+                <h3 class="font-bold text-gray-900 mb-4">Güvenlik Anahtarları</h3>
+                <p class="text-sm text-gray-600 mb-4">Fiziksel güvenlik anahtarı ekleyerek hesabını daha güvenli hale getir</p>
+                <div class="space-y-3">
+                  <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-200 rounded-xl flex items-center justify-center">
+                          <i class="fa-solid fa-key text-gray-600"></i>
+                        </div>
+                        <div>
+                          <p class="font-semibold text-gray-900">YubiKey 5 NFC</p>
+                          <p class="text-sm text-gray-600">Eklendi: 15 Ekim 2024</p>
+                        </div>
+                      </div>
+                      <button class="text-red-500 text-sm font-semibold hover:underline">
+                        Kaldır
+                      </button>
+                    </div>
+                  </div>
+                  <button class="w-full flex items-center justify-center gap-2 bg-white hover:bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-4 transition">
+                    <i class="fa-solid fa-plus text-gray-600"></i>
+                    <span class="font-semibold text-gray-700">Yeni Güvenlik Anahtarı Ekle</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="pb-6 border-b border-gray-100">
+                <h3 class="font-bold text-gray-900 mb-4">Aktif Oturumlar</h3>
+                <p class="text-sm text-gray-600 mb-4">Hesabına erişen tüm cihazları görüntüle ve yönet</p>
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between bg-gradient-to-r from-success/5 to-transparent rounded-xl p-4 border border-success/20">
+                    <div class="flex items-center gap-3">
+                      <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-desktop text-white text-lg"></i>
+                      </div>
+                      <div>
+                        <p class="font-semibold text-gray-900">Windows 11 - Chrome</p>
+                        <p class="text-sm text-gray-600">İstanbul, Türkiye</p>
+                        <p class="text-xs text-gray-500 mt-1">
+                          <i class="fa-solid fa-clock mr-1"></i>Şu anda aktif
+                        </p>
+                      </div>
+                    </div>
+                    <span class="px-3 py-1.5 bg-success/10 text-success text-xs font-bold rounded-full">Aktif Oturum</span>
+                  </div>
+                  <div class="flex items-center justify-between bg-gray-50 rounded-xl p-4 border border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-mobile-screen text-blue-600 text-lg"></i>
+                      </div>
+                      <div>
+                        <p class="font-semibold text-gray-900">iPhone 14 - Safari</p>
+                        <p class="text-sm text-gray-600">İstanbul, Türkiye</p>
+                        <p class="text-xs text-gray-500 mt-1">
+                          <i class="fa-solid fa-clock mr-1"></i>2 saat önce
+                        </p>
+                      </div>
+                    </div>
+                    <button class="text-red-500 text-sm font-semibold hover:underline">
+                      Oturumu Kapat
+                    </button>
+                  </div>
+                  <div class="flex items-center justify-between bg-gray-50 rounded-xl p-4 border border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                        <i class="fa-brands fa-apple text-purple-600 text-lg"></i>
+                      </div>
+                      <div>
+                        <p class="font-semibold text-gray-900">MacBook Pro - Safari</p>
+                        <p class="text-sm text-gray-600">Ankara, Türkiye</p>
+                        <p class="text-xs text-gray-500 mt-1">
+                          <i class="fa-solid fa-clock mr-1"></i>1 gün önce
+                        </p>
+                      </div>
+                    </div>
+                    <button class="text-red-500 text-sm font-semibold hover:underline">
+                      Oturumu Kapat
+                    </button>
+                  </div>
+                  <div class="flex items-center justify-between bg-gray-50 rounded-xl p-4 border border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                        <i class="fa-brands fa-android text-green-600 text-lg"></i>
+                      </div>
+                      <div>
+                        <p class="font-semibold text-gray-900">Samsung Galaxy S23 - Chrome</p>
+                        <p class="text-sm text-gray-600">İzmir, Türkiye</p>
+                        <p class="text-xs text-gray-500 mt-1">
+                          <i class="fa-solid fa-clock mr-1"></i>3 gün önce
+                        </p>
+                      </div>
+                    </div>
+                    <button class="text-red-500 text-sm font-semibold hover:underline">
+                      Oturumu Kapat
+                    </button>
+                  </div>
+                </div>
+                <button class="w-full mt-4 bg-red-50 hover:bg-red-100 border border-red-200 text-red-600 px-6 py-3 rounded-xl font-semibold transition">
+                  <i class="fa-solid fa-right-from-bracket mr-2"></i>
+                  Tüm Diğer Oturumları Kapat
+                </button>
+              </div>
+
+              <div class="pb-6 border-b border-gray-100">
+                <h3 class="font-bold text-gray-900 mb-4">Güvenlik Bildirimleri</h3>
+                <p class="text-sm text-gray-600 mb-4">Şüpheli aktiviteler hakkında bildirim al</p>
+                <div class="space-y-4">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="font-semibold text-gray-900">Yeni Cihaz Girişi</p>
+                      <p class="text-sm text-gray-600">Hesabına yeni bir cihazdan giriş yapıldığında bildir</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" class="sr-only peer" checked>
+                      <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="font-semibold text-gray-900">Şüpheli Aktivite</p>
+                      <p class="text-sm text-gray-600">Olağandışı giriş denemeleri tespit edildiğinde uyar</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" class="sr-only peer" checked>
+                      <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="font-semibold text-gray-900">Şifre Değişikliği</p>
+                      <p class="text-sm text-gray-600">Şifren değiştirildiğinde e-posta ile bildir</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" class="sr-only peer" checked>
+                      <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="font-semibold text-gray-900">Hesap Değişiklikleri</p>
+                      <p class="text-sm text-gray-600">Profil bilgileri güncellendiğinde bildir</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" class="sr-only peer" checked>
+                      <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-bold text-gray-900 mb-4">Güvenlik Geçmişi</h3>
+                <p class="text-sm text-gray-600 mb-4">Son güvenlik olaylarını görüntüle</p>
+                <div class="space-y-3">
+                  <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4">
+                    <div class="w-10 h-10 bg-success/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i class="fa-solid fa-check text-success"></i>
+                    </div>
+                    <div class="flex-1">
+                      <p class="font-semibold text-gray-900">Başarılı Giriş</p>
+                      <p class="text-sm text-gray-600">Windows 11 - Chrome, İstanbul</p>
+                      <p class="text-xs text-gray-500 mt-1">Bugün, 14:32</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4">
+                    <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i class="fa-solid fa-key text-primary"></i>
+                    </div>
+                    <div class="flex-1">
+                      <p class="font-semibold text-gray-900">Şifre Değiştirildi</p>
+                      <p class="text-sm text-gray-600">Şifren başarıyla güncellendi</p>
+                      <p class="text-xs text-gray-500 mt-1">3 gün önce, 10:15</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4">
+                    <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i class="fa-solid fa-triangle-exclamation text-orange-500"></i>
+                    </div>
+                    <div class="flex-1">
+                      <p class="font-semibold text-gray-900">Başarısız Giriş Denemesi</p>
+                      <p class="text-sm text-gray-600">Bilinmeyen cihaz, Ankara</p>
+                      <p class="text-xs text-gray-500 mt-1">1 hafta önce, 02:45</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4">
+                    <div class="w-10 h-10 bg-success/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i class="fa-solid fa-shield-halved text-success"></i>
+                    </div>
+                    <div class="flex-1">
+                      <p class="font-semibold text-gray-900">2FA Etkinleştirildi</p>
+                      <p class="text-sm text-gray-600">İki faktörlü kimlik doğrulama açıldı</p>
+                      <p class="text-xs text-gray-500 mt-1">2 hafta önce, 16:20</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="w-full mt-4 text-primary font-semibold text-sm hover:underline">
+                  Tüm Geçmişi Görüntüle
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+function togglePassword(inputId, button) {
+    const input = document.getElementById(inputId);
+    const icon = button.querySelector('i');
+    
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+}
+
+document.getElementById('new-password').addEventListener('input', function(e) {
+    const password = e.target.value;
+    const lengthCheck = document.getElementById('length-check');
+    const uppercaseCheck = document.getElementById('uppercase-check');
+    const numberCheck = document.getElementById('number-check');
+    const specialCheck = document.getElementById('special-check');
+    const strengthBar = document.getElementById('password-strength');
+    const strengthText = document.getElementById('strength-text');
+    
+    let strength = 0;
+    
+    if (password.length >= 8) {
+        lengthCheck.classList.remove('text-gray-300');
+        lengthCheck.classList.add('text-success');
+        strength += 25;
+    } else {
+        lengthCheck.classList.remove('text-success');
+        lengthCheck.classList.add('text-gray-300');
+    }
+    
+    if (/[A-Z]/.test(password)) {
+        uppercaseCheck.classList.remove('text-gray-300');
+        uppercaseCheck.classList.add('text-success');
+        strength += 25;
+    } else {
+        uppercaseCheck.classList.remove('text-success');
+        uppercaseCheck.classList.add('text-gray-300');
+    }
+    
+    if (/[0-9]/.test(password)) {
+        numberCheck.classList.remove('text-gray-300');
+        numberCheck.classList.add('text-success');
+        strength += 25;
+    } else {
+        numberCheck.classList.remove('text-success');
+        numberCheck.classList.add('text-gray-300');
+    }
+    
+    if (/[^A-Za-z0-9]/.test(password)) {
+        specialCheck.classList.remove('text-gray-300');
+        specialCheck.classList.add('text-success');
+        strength += 25;
+    } else {
+        specialCheck.classList.remove('text-success');
+        specialCheck.classList.add('text-gray-300');
+    }
+    
+    strengthBar.style.width = strength + '%';
+    
+    if (strength === 0) {
+        strengthBar.className = 'h-full bg-gray-300 transition-all duration-300';
+        strengthText.textContent = 'Şifre gücü: Çok Zayıf';
+    } else if (strength === 25) {
+        strengthBar.className = 'h-full bg-red-500 transition-all duration-300';
+        strengthText.textContent = 'Şifre gücü: Zayıf';
+    } else if (strength === 50) {
+        strengthBar.className = 'h-full bg-orange-500 transition-all duration-300';
+        strengthText.textContent = 'Şifre gücü: Orta';
+    } else if (strength === 75) {
+        strengthBar.className = 'h-full bg-yellow-500 transition-all duration-300';
+        strengthText.textContent = 'Şifre gücü: İyi';
+    } else if (strength === 100) {
+        strengthBar.className = 'h-full bg-success transition-all duration-300';
+        strengthText.textContent = 'Şifre gücü: Çok Güçlü';
+    }
+});
+
+document.getElementById('confirm-password').addEventListener('input', function(e) {
+    const newPassword = document.getElementById('new-password').value;
+    const confirmPassword = e.target.value;
+    const errorMsg = document.getElementById('password-match-error');
+    
+    if (confirmPassword && newPassword !== confirmPassword) {
+        errorMsg.classList.remove('hidden');
+    } else {
+        errorMsg.classList.add('hidden');
+    }
+});
+</script>
+
+</body>
+</html>
